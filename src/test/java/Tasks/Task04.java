@@ -33,18 +33,14 @@ public class Task04 extends TestBase {
         // -Dropdown menuden sırasıyla ilk 5 başlığı (Arts&Crafts ile başlayıp Books'a kadar Books dahil) seçip
         // -başlık altındakileri aratalım. Her aramada sayfa başlığını yazdıralım
 
-        int sayac =1;
-        for (WebElement w : menuListesi){
-            Select select1 = new Select(driver.findElement(By.xpath("//*[@id='searchDropdownBox']")));
-            select1.selectByIndex(sayac);
+        for (int i =1; i<6; i++){
+            Select select1 = new Select(driver.findElement(By.xpath("//select")));
+            select1.selectByIndex(i);
             driver.findElement(By.xpath("//*[@id='nav-search-submit-button']")).click();
             System.out.println(driver.getTitle());
             driver.navigate().back();
             bekle(2);
-            sayac++;
-            if (sayac>5){
-                break;
-            }
+
         }
 
     }
