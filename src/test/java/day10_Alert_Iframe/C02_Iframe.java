@@ -29,7 +29,7 @@ public class C02_Iframe extends TestBase {
 		            <iframe id="innerIframe" src="https://www.google.com"></iframe> -->Eğer bir üst frame içinde bir frame daha varsa tekrar driver.switchTo().frame("innerIframe");
 	            </iframe>
             </body>
-        -Index ile yukarıda bahsettiğimiz gibide yapabilirsiniz
+        -Index ile yukarıda bahsettiğimiz gibi de yapabilirsiniz
         -iframe'i locate ederekte örneğin yukarıdaki kodun "iframe[id='outerIframe']" ccsSelector ile locate edilmiş hali
         -id ve name attributu varsa "driver.switchTo().frame("outerIframe")" bu şekildede geçiş yapabilirsiniz
          */
