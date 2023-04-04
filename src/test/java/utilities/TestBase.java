@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class TestBase {
     //TestBase class'tan obje oluşturulmasının önüne geçilmesi için abstract yapılabilir.
@@ -27,7 +29,7 @@ public abstract class TestBase {
     @After
     public void tearDown() throws Exception {
         Thread.sleep(3000);
-        //driver.quit();
+        driver.quit();
     }
     //HARD WAIT METHOD
     public static void bekle (int saniye)  {
@@ -79,4 +81,14 @@ public abstract class TestBase {
         select.selectByValue(secenek);
     }
 
+    //SwitchToWindow
+    public static void switchToWindow (int sayi){
+        List<String> tumWindowsHandles = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tumWindowsHandles.get(sayi));
+    }
+
+    //SwitchToWindow
+    public static void window (int sayi){
+        driver.switchTo().window(driver.getWindowHandles().toArray()[sayi].toString());
+    }
 }
