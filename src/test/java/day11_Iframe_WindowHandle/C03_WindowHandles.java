@@ -47,16 +47,13 @@ public class C03_WindowHandles extends TestBase {
             }
         } // Burada amaç bizim kontrolümüz dışında açılan pencereye gitmek.
 
-<<<<<<< HEAD
         /*
         List<String> tumWindowsHandles = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tumWindowsHandles.get(1));
          */
 
-=======
 //        List<String> tumWindowsHandles = new ArrayList<String>(driver.getWindowHandles());
 //        driver.switchTo().window(tumWindowsHandles.get(1));
->>>>>>> 7499a1aaff21e5766dab741ab0d6f116e8c014b2
 
 
         //    Açılan yeni pencerenin sayfa başlığının(title) “New Window” olduğunu doğrulayın.
