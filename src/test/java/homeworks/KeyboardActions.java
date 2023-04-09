@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utilities.TestBase;
 
-public class KeyboardBaseActions extends TestBase {
+public class KeyboardActions extends TestBase {
     @Test
     public void test() {
         //1- "http://webdriveruniversity.com/Actions" sayfasina gidin
