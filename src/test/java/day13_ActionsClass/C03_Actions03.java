@@ -56,6 +56,7 @@ public class C03_Actions03 extends TestBase {
     public void actions3() {
         //Amazon anasayfasına gidin
         driver.get("https://amazon.com");
+
         //Arama kutusunda büyük harflerle samsung aratalım
         WebElement aramaKutusu = driver.findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys(Keys.SHIFT,"sa",Keys.SHIFT,"msung",Keys.ENTER);//SAmsung
