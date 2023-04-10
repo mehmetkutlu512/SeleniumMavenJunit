@@ -20,16 +20,15 @@ public class KeyboardActions2 extends TestBase {
 
 
         //4.videoyu izlemek icin Play tusuna basin
-        Actions actions1 = new Actions(driver);
 
-        WebElement videoElement = driver.findElement(By.xpath("//*[@frameborder='0']"));
-        //driver.switchTo().frame(videoElement);
+        WebElement videoElement = driver.findElement(By.xpath("//iframe[@width='560']"));
+        driver.switchTo().frame(videoElement);
+
+        WebElement play = driver.findElement(By.xpath("//*[@id='movie_player']/div[4]/button"));
+        play.click();
 
 
-        actions1.click(videoElement).perform();
 
-        //videoElement.click();
-        //actions.moveByOffset(419,750).click().perform();
 
         //5.videoyu calistirdiginizi test edin
     }
