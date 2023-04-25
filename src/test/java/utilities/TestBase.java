@@ -37,25 +37,11 @@ public abstract class TestBase {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-    //================================================================================
-        extentReports = new ExtentReports();
-        String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
-        String dosyaYolu = "testOutput/reports/extentReport_" + tarih + ".html";
-        extentHtmlReporter = new ExtentHtmlReporter(dosyaYolu);
-        extentReports.attachReporter(extentHtmlReporter);
-
-        //Raporda gözükmesini istediğimiz bilgiler için
-        extentReports.setSystemInfo("Browser", "Chrome");
-        extentReports.setSystemInfo("Tester", "Erol");
-        extentHtmlReporter.config().setDocumentTitle("Extent Report");
-        extentHtmlReporter.config().setReportName("Smoke Test Raporu");
-        extentTest = extentReports.createTest("ExtentTest", "Test Raporu");
 
     }
 
     @After
     public void tearDown() throws Exception {
-        extentReports.flush();
         Thread.sleep(3000);
         //driver.quit();
     }
@@ -165,5 +151,28 @@ public abstract class TestBase {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    //ExtentReport
+    public void extentReport(){
+        extentReports = new ExtentReports();
+        String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+        String dosyaYolu = "testOutput/reports/extentReport_" + tarih + ".html";
+        extentHtmlReporter = new ExtentHtmlReporter(dosyaYolu);
+        extentReports.attachReporter(extentHtmlReporter);
+
+        //Raporda gözükmesini istediğimiz bilgiler için
+        extentReports.setSystemInfo("Browser", "Chrome");
+        extentReports.setSystemInfo("Tester", "Erol");
+        extentHtmlReporter.config().setDocumentTitle("Extent Report");
+        extentHtmlReporter.config().setReportName("Smoke Test Raporu");
+        extentTest = extentReports.createTest("ExtentTest", "Test Raporu");
+    }
+
+    //WebTable
+    public void printData(int satir, int sutun){
+
+        WebElement satirSutun = driver.findElement(By.xpath("(//tbody)[1]//tr[" + satir + "]//td[" + sutun + "]"));
+        System.out.println(satirSutun.getText());
     }
 }

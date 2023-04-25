@@ -9,6 +9,7 @@ import utilities.TestBase;
 public class C05_ExtentReport extends TestBase {
     @Test
     public void test() {
+        extentReport();
         extentTest = extentReports.createTest("ExtentTest", "Test Raporu");
         //Techproeducation sayfasına gidelim
         driver.get("https://techproeducation.com");
@@ -29,6 +30,8 @@ public class C05_ExtentReport extends TestBase {
         webElementResmi(sonucYazisi); //Method kullanarak Webelementin resmini aldık.
         extentTest.info("Sonuc yazısının resmi alındı");
         extentTest.pass("Test sonlandırıldı");
+
+        extentReports.flush();
 
     }
 }
