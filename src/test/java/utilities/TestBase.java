@@ -175,4 +175,14 @@ public abstract class TestBase {
         WebElement satirSutun = driver.findElement(By.xpath("(//tbody)[1]//tr[" + satir + "]//td[" + sutun + "]"));
         System.out.println(satirSutun.getText());
     }
+
+    //Click method
+    public void click (WebElement webElement){
+        try {
+            webElement.click();
+        } catch (Exception e) {
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            jse.executeScript("arguments[0].click();", webElement);
+        }
+    }
 }
