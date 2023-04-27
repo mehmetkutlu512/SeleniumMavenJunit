@@ -191,4 +191,17 @@ public abstract class TestBase {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView(true);", webElement);
     }
+
+    //JS Sayfa Sonu
+    public void scrollEnd (WebElement webElement) {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
+
+    //JS Sayfa Başı
+    public void scrollHome (WebElement webElement) {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+    }
+
+}

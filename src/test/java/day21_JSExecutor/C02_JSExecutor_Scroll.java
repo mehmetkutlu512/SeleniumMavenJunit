@@ -53,7 +53,12 @@ public class C02_JSExecutor_Scroll extends TestBase {
         tumSayfaResmi();
 
         //Sayfayı en alta scroll yapalım
+        jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+
         //Sayfayi en üste scroll yapalım
+        jse.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+
+        //jse.executeScript("window.scrollTo(0,0)");
 
     }
 }
