@@ -192,16 +192,31 @@ public abstract class TestBase {
         jse.executeScript("arguments[0].scrollIntoView(true);", webElement);
     }
 
-    //JS Sayfa Sonu
-    public void scrollEnd (WebElement webElement) {
+    //JS Sayfa Sonu Scroll
+    public void scrollEnd () {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
 
-    //JS Sayfa Başı
-    public void scrollHome (WebElement webElement) {
+    //JS Sayfa Başı Scroll
+    public void scrollHome () {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
 
+
+    //JS Sendkeys
+    public void jsSendKeys (WebElement webElement, String text) {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].value='"+ text + "'", webElement);
+    }
+
+    //JS SendAttributeValue
+    public void sendAttributeJS (WebElement webElement, String text) {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].setAttribute('value', '" + text + "')", webElement);
+
+    }
 }
+
+
