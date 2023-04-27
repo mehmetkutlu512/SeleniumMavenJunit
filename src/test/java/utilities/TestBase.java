@@ -185,4 +185,10 @@ public abstract class TestBase {
             jse.executeScript("arguments[0].click();", webElement);
         }
     }
-}
+
+    //JS Scroll
+    public void scroll (WebElement webElement) {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView(true);", webElement);
+    }
+    }
