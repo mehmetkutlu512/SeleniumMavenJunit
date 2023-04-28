@@ -176,6 +176,16 @@ public abstract class TestBase {
         }
     }
 
+    public static void webElementResmiPractice (WebElement webElement){
+        String tarih = new SimpleDateFormat("_hh_mm_ss_dd.MM.yyyy").format(new Date());
+        String dosyaYolu = "testEkranGoruntuleri/ekranGoruntusu"+ tarih + ".png";
+        try {
+            FileUtils.copyFile(webElement.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     //ExtentReport
     public void extentReport(){
         extentReports = new ExtentReports();
