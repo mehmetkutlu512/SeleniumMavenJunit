@@ -163,6 +163,8 @@ public abstract class TestBase {
         }
     }
 
+
+
     //Webelement Screenshot
     public static void webElementResmi (WebElement webElement){
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
