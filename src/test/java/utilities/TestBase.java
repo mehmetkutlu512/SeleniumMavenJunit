@@ -113,6 +113,11 @@ public abstract class TestBase {
 
     }
 
+    public static void visibleWaitPractice (WebElement webElement, int sure){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(sure));
+        wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
     //Alert Wait
     public static void alertWait (int sayi){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(sayi));
@@ -125,6 +130,11 @@ public abstract class TestBase {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(sayi));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
+    }
+
+    public static void visibleWaitPractice (By locator ,int sure){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(sure));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     //Tüm sayfa ScreenShot
