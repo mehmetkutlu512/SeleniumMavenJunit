@@ -152,6 +152,17 @@ public abstract class TestBase {
 
     }
 
+    public static void tumSayfaResmiPractice (){
+        String tarih = new SimpleDateFormat("_hh_mm_ss_dd.MM.yyyy").format(new Date());
+        String dosyaYolu = "testEkranGoruntuleri/ekranGoruntusu" + tarih + ".png";
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        try {
+            FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     //Webelement Screenshot
     public static void webElementResmi (WebElement webElement){
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
