@@ -48,11 +48,22 @@ public class C01_WebTablesPractice extends TestBase {
         List<WebElement> sutun5List = driver.findElements(By.xpath("(//tbody)[1]//td[5]"));
         sutun5List.forEach(t-> System.out.print(t.getText() + " - "));
 
+        //    Task 5 : Iki parametreli bir Java metodu oluşturalım: printData
+        //    Parameter 1 = satır numarası
+        //    Parameter 2 = sütun numarası
+        //    printData(2,3);  => 2. satır, 3. sütundaki veriyi yazdırsın.
     }
 
     @Test
     public void webTablesTest2() {
+        driver.get("https://the-internet.herokuapp.com/tables");
+        System.out.println("******************************************");
+        printDataPractice(2,2);
 
+    }
 
+    public void printDataPractice (int satir, int sutun){
+        WebElement element = driver.findElement(By.xpath("(//tbody)[1]//tr[" + satir + "]//td[" + sutun + "]"));
+        System.out.println(element.getText());
     }
 }
