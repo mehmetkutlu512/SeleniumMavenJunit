@@ -1,11 +1,16 @@
 package day_05_practice;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import utilities.TestBase;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class C01_ActionMoveToElement extends TestBase {
 
@@ -15,6 +20,7 @@ public class C01_ActionMoveToElement extends TestBase {
     public void test01() {
         // https://amazon.com adresine gidiniz
         driver.get("https://amazon.com");
+        String sayfa1Handle = driver.getWindowHandle();
 
         // sag ust bolumde bulunan dil secenek menusunun acilmasi icin mause'u bu menunun ustune getirelim
         WebElement dilMenusu = driver.findElement(By.xpath("//div[text()='EN']"));
@@ -45,5 +51,23 @@ public class C01_ActionMoveToElement extends TestBase {
 
 
         // acilan yeni sayfadanin Title'inin Elektronik icerdigini test ediniz
+
+        Set<String> windowHandlesSeti = driver.getWindowHandles();
+        System.out.println("Tum Sayfaların Handle Degeri: " + windowHandlesSeti);
+        System.out.println("sayfa1Handle: " + sayfa1Handle);
+
+        String sayfa2Handle = "";
+
+        for (String windowHandle : windowHandlesSeti){
+            if (!windowHandle.equals(sayfa1Handle)){
+                sayfa2Handle = windowHandle;
+
+            }
+        }
+
+        System.out.println("sayfa2Handle: " + sayfa2Handle);
+
+        driver.switchTo().window(sayfa2Handle);
+        Assert.assertTrue(driver.getTitle().contains("Elektronik"));
     }
 }
