@@ -33,6 +33,7 @@ public abstract class TestBase {
 
     @Before
     public void setUp() throws Exception {
+
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -248,6 +249,15 @@ public abstract class TestBase {
     public void sendAttributeJS (WebElement webElement, String text) {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].setAttribute('value', '" + text + "')", webElement);
+
+    }
+
+    //JS GetAttributeValue
+    public void getValueByJS(String id, String attributeName) {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String attribute_Value = (String) js.executeScript("return document.getElementById('" + id + "')." + attributeName);
+        System.out.println("Attribute Value: = " + attribute_Value);
 
     }
 }
