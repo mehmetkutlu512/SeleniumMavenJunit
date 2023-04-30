@@ -266,6 +266,11 @@ public abstract class TestBase {
 
     }
 
+    public void sendAttributeJSPractice (WebElement webElement,String deger){
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].setAttribute('value','"+deger+"')",webElement);
+    }
+
     //JS GetAttributeValue
     public void getValueByJS(String id, String attributeName) {
 
