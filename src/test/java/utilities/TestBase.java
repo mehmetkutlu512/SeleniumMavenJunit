@@ -220,6 +220,15 @@ public abstract class TestBase {
         }
     }
 
+    public void clickJSPractice (WebElement webElement){
+        try {
+            webElement.click();
+        } catch (Exception e) {
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            jse.executeScript("arguments[0].click;", webElement);
+        }
+    }
+
     //JS Scroll
     public void scroll (WebElement webElement) {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
