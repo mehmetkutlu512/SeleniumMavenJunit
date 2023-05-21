@@ -67,9 +67,9 @@ public class C01_ExcelReadPractice {
 
         // Ülke-Başkent şeklinde verileri yazdırın
 
-        Map<String, String> ulkeBaskentler = new HashMap<>();
-        for (int i= 0; i<workbook.getSheet("Sheet1").getPhysicalNumberOfRows(); i++){
-        }
+
+
+
 
     }
 }
